@@ -1,0 +1,41 @@
+@model IEnumerable<GuildENM.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="controls pull-right">
+          
+            </div>
+            <div class="content">
+                <h3 class="pull-left"> @item.Title</h3>
+                <div class="pull-right">
+                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                    @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                    @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                </div>
+                <div class="clearfix"></div>
+                <h4 class="pull-left">@item.PostDate.Date.ToShortDateString()</h4>
+                <h4 class="pull-right">
+                    @item.Location.Street @item.Location.Street2 , @item.Location.State @item.Location.Zip
+
+                </h4>
+                <div class="clearfix"></div>
+                <p>@item.Description</p>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+

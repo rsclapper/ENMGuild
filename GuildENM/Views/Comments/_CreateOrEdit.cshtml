@@ -1,0 +1,39 @@
+@model GuildENM.Models.Comment
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.UserId)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.UserId)
+    @Html.ValidationMessageFor(model => model.UserId)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Content)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Content)
+    @Html.ValidationMessageFor(model => model.Content)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.DatePosted)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.DatePosted)
+    @Html.ValidationMessageFor(model => model.DatePosted)
+</div>
+
+<div class="editor-label">
+    Post
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.PostId, ((IEnumerable<GuildENM.Models.Post>)ViewBag.PossiblePosts).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Title), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.PostId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.PostId)
+</div>

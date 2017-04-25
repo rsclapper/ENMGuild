@@ -1,0 +1,26 @@
+@model GuildENM.Models.Company
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Company</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Url</div>
+    <div class="display-field">@Model.Url</div>
+
+    <div class="display-label">Posts</div>
+    <div class="display-field">@(Model.Posts == null ? "None" : Model.Posts.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

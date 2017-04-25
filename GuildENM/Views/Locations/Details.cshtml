@@ -1,0 +1,32 @@
+@model GuildENM.Models.Location
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Location</legend>
+
+    <div class="display-label">Street</div>
+    <div class="display-field">@Model.Street</div>
+
+    <div class="display-label">Street2</div>
+    <div class="display-field">@Model.Street2</div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">@Model.City</div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">@Model.State</div>
+
+    <div class="display-label">Zip</div>
+    <div class="display-field">@Model.Zip</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
