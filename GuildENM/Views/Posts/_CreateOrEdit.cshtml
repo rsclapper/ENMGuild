@@ -2,57 +2,68 @@
 
 @* This partial view defines form fields that will appear when creating and editing entities *@
 
-<div class="editor-label">
-    @Html.LabelFor(model => model.Title)
-</div>
-<div class="editor-field">
-    @Html.EditorFor(model => model.Title)
-    @Html.ValidationMessageFor(model => model.Title)
-</div>
 
-<div class="editor-label">
-    @Html.LabelFor(model => model.Description)
-</div>
-<div class="editor-field">
-    @Html.EditorFor(model => model.Description)
-    @Html.ValidationMessageFor(model => model.Description)
-</div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Title">Title</label>  
+            <div class="col-md-4">
+                <input id="Title" value="@Model.Title" name="Title" type="text" placeholder="" class="form-control input-md" required="">
+    
+            </div>
+        </div>
 
-<div class="editor-label">
-    @Html.LabelFor(model => model.PostDate)
-</div>
-<div class="editor-field">
-    @Html.EditorFor(model => model.PostDate)
-    @Html.ValidationMessageFor(model => model.PostDate)
-</div>
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Description">Description</label>
+            <div class="col-md-4">                     
+                <textarea class="form-control" value="@Model.Description" id="Description" name="Description"></textarea>
+            </div>
+        </div>
 
-<div class="editor-label">
-    @Html.LabelFor(model => model.LastEdit)
-</div>
-<div class="editor-field">
-    @Html.EditorFor(model => model.LastEdit)
-    @Html.ValidationMessageFor(model => model.LastEdit)
-</div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="PostDate">Post Date</label>  
+            <div class="col-md-4">
+                <input id="PostDate" name="PostDate"  value="@Model.PostDate" type="text" placeholder="" class="form-control input-md" required="">
+    
+            </div>
+        </div>
 
-<div class="editor-label">
-    Location
-</div>
-<div class="editor-field">
-    @Html.DropDownListFor(model => model.LocationId, ((IEnumerable<GuildENM.Models.Location>)ViewBag.PossibleLocations).Select(option => new SelectListItem {
-        Text = Html.DisplayTextFor(_ => option).ToString(), 
-        Value = option.Id.ToString(),
-        Selected = (Model != null) && (option.Id == Model.LocationId)
-    }), "Choose...")
-    @Html.ValidationMessageFor(model => model.LocationId)
-</div>
-<div class="editor-label">
-    Company
-</div>
-<div class="editor-field">
-    @Html.DropDownListFor(model => model.CompanyId, ((IEnumerable<GuildENM.Models.Company>)ViewBag.PossibleCompanies).Select(option => new SelectListItem {
-        Text = (option == null ? "None" : option.Name), 
-        Value = option.Id.ToString(),
-        Selected = (Model != null) && (option.Id == Model.CompanyId)
-    }), "Choose...")
-    @Html.ValidationMessageFor(model => model.CompanyId)
-</div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="lastEdit">Last Edit</label>  
+            <div class="col-md-4">
+                <input id="lastEdit" name="lastEdit" readonly="readonly" value="@Model.LastEdit" type="text" placeholder="" class="form-control input-md">
+    
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="LocationId">Select Location</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.LocationId, ((IEnumerable<GuildENM.Models.Location>)ViewBag.PossibleLocations).Select(option => new SelectListItem {
+                    Text = $"{option.Street} {option.Street2} {option.City} {option.State}, {option.Zip}", 
+                    Value = option.Id.ToString(),
+                    Selected = (Model != null) && (option.Id == Model.LocationId)
+                }), "Choose...",new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.LocationId)
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="CompanyId">Select Company</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.CompanyId, ((IEnumerable<GuildENM.Models.Company>)ViewBag.PossibleCompanies).Select(option => new SelectListItem {
+                    Text = (option == null ? "None" : option.Name), 
+                    Value = option.Id.ToString(),
+                    Selected = (Model != null) && (option.Id == Model.CompanyId)
+                }), "Choose...",new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.CompanyId)
+            </div>
+        </div>
+
+
+
+

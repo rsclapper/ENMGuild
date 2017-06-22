@@ -1,3 +1,4 @@
+using System;
 using System.Web.Mvc;
 using GuildENM.Data;
 using GuildENM.Models;
@@ -46,7 +47,7 @@ namespace GuildENM.Controllers
         {
 			ViewBag.PossibleLocations = locationRepository.All;
 			ViewBag.PossibleCompanies = companyRepository.All;
-            return View();
+            return View(new Post(){PostDate = DateTime.Now, LastEdit = DateTime.Now});
         } 
 
         //

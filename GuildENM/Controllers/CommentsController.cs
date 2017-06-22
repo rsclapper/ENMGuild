@@ -43,7 +43,7 @@ namespace GuildENM.Controllers
         public ActionResult Create()
         {
 			ViewBag.PossiblePosts = postRepository.All;
-            return View();
+            return View(new Comment());
         } 
 
         //

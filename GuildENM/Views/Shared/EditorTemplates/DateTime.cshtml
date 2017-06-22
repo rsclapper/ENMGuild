@@ -1,0 +1,14 @@
+﻿@model DateTime?
+<div class='input-group date datePicker'>
+    <span class="input-group-sm">
+        <input type="datetime" id="@Html.IdForModel()" name="@Html.NameForModel()" value="@(Model.HasValue ? Model.Value.ToString("d") : "")" />
+    </span>
+</div>
+<script type="text/javascript">
+    $(function() {
+        // target only the input in this editor template
+        $('#@Html.IdForModel()').datetimepicker({
+            pickTime: false
+        });
+    });
+</script>

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Manage Job Posts</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -24,7 +24,10 @@
                     @Html.ActionLink("Delete", "Delete", new {id = item.Id})
                 </div>
                 <div class="clearfix"></div>
-                <h4 class="pull-left">@item.PostDate.Date.ToShortDateString()</h4>
+                <h4 class="pull-left">@item.PostDate.Date.ToShortDateString()
+                    <span class="badge">dot net</span>
+                    <span class="badge">java</span>
+                </h4>
                 <h4 class="pull-right">
                     @item.Location.Street @item.Location.Street2 , @item.Location.State @item.Location.Zip
 
