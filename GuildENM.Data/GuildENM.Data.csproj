@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201704251844309_initdb.Designer.cs">
       <DependentUpon>201704251844309_initdb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706231500348_Added skill tags.cs" />
+    <Compile Include="Migrations\201706231500348_Added skill tags.Designer.cs">
+      <DependentUpon>201706231500348_Added skill tags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704251844309_initdb.resx">
       <DependentUpon>201704251844309_initdb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706231500348_Added skill tags.resx">
+      <DependentUpon>201706231500348_Added skill tags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

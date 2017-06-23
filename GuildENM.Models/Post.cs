@@ -19,6 +19,6 @@ namespace GuildENM.Models
         public List<Comment> Comments { get; set; }
         public Company Company { get; set; }
         public Location Location { get; set; }
-
+        public virtual List<Tag> Tags { get; set; }
     }
 }
