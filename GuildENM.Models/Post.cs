@@ -16,7 +16,6 @@ namespace GuildENM.Models
         public DateTime PostDate { get; set; }
         public DateTime LastEdit { get; set; }
 
-        public List<Comment> Comments { get; set; }
         public Company Company { get; set; }
         public Location Location { get; set; }
         public virtual List<Tag> Tags { get; set; }

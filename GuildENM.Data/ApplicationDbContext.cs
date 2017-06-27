@@ -21,7 +21,6 @@ namespace GuildENM.Data
             return new ApplicationDbContext();
         }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Comment> Comments { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Tag> Tags { get; set; }
