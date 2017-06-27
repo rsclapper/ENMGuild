@@ -30,8 +30,11 @@ namespace GuildENM.Models
         [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         [ForeignKey("Company")]
         public int CompanyId { get; set; }
+
+        [ForeignKey("Contact")]
         public int ContactId { get; set; }
 
         public virtual Company Company { get; set; }
+        public virtual Contact Contact { get; set; }
     }
 }

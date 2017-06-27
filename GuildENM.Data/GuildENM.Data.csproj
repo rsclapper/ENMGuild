@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201706270232518_fixedUserColumnSpelling.Designer.cs">
       <DependentUpon>201706270232518_fixedUserColumnSpelling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.cs" />
+    <Compile Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.Designer.cs">
+      <DependentUpon>201706270248154_AddedFKConstrantDefaultContact_ContactID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706270232518_fixedUserColumnSpelling.resx">
       <DependentUpon>201706270232518_fixedUserColumnSpelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.resx">
+      <DependentUpon>201706270248154_AddedFKConstrantDefaultContact_ContactID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
