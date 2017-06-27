@@ -23,6 +23,10 @@ namespace GuildENM.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Company> Companies { get; set; }
-        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<DefaultContact> DefaultContacts { get; set; }
+        public DbSet<Skill> Tags { get; set; }
+        public DbSet<StudentUser> StudentUsers { get; set; }
+        public DbSet<EmploymentManager> EmploymentManager { get; set; }
     }
 }

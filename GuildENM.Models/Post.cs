@@ -18,6 +18,7 @@ namespace GuildENM.Models
 
         public Company Company { get; set; }
         public Location Location { get; set; }
-        public virtual List<Tag> Tags { get; set; }
+        public virtual List<Skill> Skills { get; set; }
+        
     }
 }

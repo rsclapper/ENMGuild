@@ -67,6 +67,18 @@
     <Compile Include="Migrations\201706270106069_removedComments.Designer.cs">
       <DependentUpon>201706270106069_removedComments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706270123296_addedContacts.cs" />
+    <Compile Include="Migrations\201706270123296_addedContacts.Designer.cs">
+      <DependentUpon>201706270123296_addedContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706270223141_renamedTagsToSkills_AddedStudentENM.cs" />
+    <Compile Include="Migrations\201706270223141_renamedTagsToSkills_AddedStudentENM.Designer.cs">
+      <DependentUpon>201706270223141_renamedTagsToSkills_AddedStudentENM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706270232518_fixedUserColumnSpelling.cs" />
+    <Compile Include="Migrations\201706270232518_fixedUserColumnSpelling.Designer.cs">
+      <DependentUpon>201706270232518_fixedUserColumnSpelling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +102,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706270106069_removedComments.resx">
       <DependentUpon>201706270106069_removedComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706270123296_addedContacts.resx">
+      <DependentUpon>201706270123296_addedContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706270223141_renamedTagsToSkills_AddedStudentENM.resx">
+      <DependentUpon>201706270223141_renamedTagsToSkills_AddedStudentENM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706270232518_fixedUserColumnSpelling.resx">
+      <DependentUpon>201706270232518_fixedUserColumnSpelling.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
