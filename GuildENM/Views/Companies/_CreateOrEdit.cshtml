@@ -2,22 +2,5 @@
 
 @* This partial view defines form fields that will appear when creating and editing entities *@
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Name, new { @class = "col-md-4 control-label" })
-    <div class="col-md-4">
 
-        @Html.TextBoxFor(model => model.Name, new { @class = "form-control input-md" })
-        @Html.ValidationMessageFor(model => model.Name)
-    </div>
-</div>
-
-<div class="form-group">
-    @Html.LabelFor(model => model.Url, new { @class = "col-md-4 control-label" })
-    <div class="col-md-4">
-
-        @Html.TextBoxFor(model => model.Url, new { @class = "form-control input-md" })
-        @Html.ValidationMessageFor(model => model.Url)
-    </div>
-
-</div>
 

@@ -8,19 +8,21 @@ using GuildENM.Models;
 using GuildENM.Models.Repositories;
 
 namespace GuildENM.Controllers
-{   
+{
     public class LocationsController : Controller
     {
-		private readonly ILocationRepository locationRepository;
+        private readonly ILocationRepository _locationRepository;
+        private readonly ICompanyRepository _companyRepository;
 
-		// If you are using Dependency Injection, you can delete the following constructor
-        public LocationsController() : this(new LocationRepository())
+        // If you are using Dependency Injection, you can delete the following constructor
+        public LocationsController() : this(new LocationRepository(), new CompanyRepository())
         {
         }
 
-        public LocationsController(ILocationRepository locationRepository)
+        public LocationsController(ILocationRepository locationRepository, ICompanyRepository companyRepository)
         {
-			this.locationRepository = locationRepository;
+            this._locationRepository = locationRepository;
+            this._companyRepository = companyRepository;
         }
 
         //
@@ -28,7 +30,7 @@ namespace GuildENM.Controllers
 
         public ViewResult Index()
         {
-            return View(locationRepository.All);
+            return View(_locationRepository.All);
         }
 
         //
@@ -36,7 +38,12 @@ namespace GuildENM.Controllers
 
         public ViewResult Details(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(_locationRepository.Find(id));
+        }
+
+        public JsonResult ByCompanyId(int id)
+        {
+            return Json(_locationRepository.All.Where(location => location.CompanyId == id), JsonRequestBehavior.AllowGet);
         }
 
         //
@@ -44,8 +51,10 @@ namespace GuildENM.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.AvailableCompanies = new SelectList(_companyRepository.All.Select(r => new { r.Id, r.Name }), "Id", "Name");
+
             return View(new Location());
-        } 
+        }
 
         //
         // POST: /Locations/Create
@@ -53,21 +62,26 @@ namespace GuildENM.Controllers
         [HttpPost]
         public ActionResult Create(Location location)
         {
-            if (ModelState.IsValid) {
-                locationRepository.InsertOrUpdate(location);
-                locationRepository.Save();
+            if (ModelState.IsValid)
+            {
+                _locationRepository.InsertOrUpdate(location);
+                _locationRepository.Save();
                 return RedirectToAction("Index");
-            } else {
-				return View();
-			}
+            }
+            else
+            {
+                ViewBag.AvailableCompanies = new SelectList(_companyRepository.All.Select(r => new { r.Id, r.Name }), "Id", "Name");
+                return View(location);
+            }
         }
-        
+
         //
         // GET: /Locations/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
-             return View(locationRepository.Find(id));
+                ViewBag.AvailableCompanies = new SelectList(_companyRepository.All.Select(r => new { r.Id, r.Name }), "Id", "Name");
+            return View(_locationRepository.Find(id));
         }
 
         //
@@ -76,21 +90,25 @@ namespace GuildENM.Controllers
         [HttpPost]
         public ActionResult Edit(Location location)
         {
-            if (ModelState.IsValid) {
-                locationRepository.InsertOrUpdate(location);
-                locationRepository.Save();
+            if (ModelState.IsValid)
+            {
+                _locationRepository.InsertOrUpdate(location);
+                _locationRepository.Save();
                 return RedirectToAction("Index");
-            } else {
-				return View();
-			}
+            }
+            else
+            {
+                ViewBag.AvailableCompanies = new SelectList(_companyRepository.All.Select(r => new { r.Id, r.Name }), "Id", "Name");
+                return View(location);
+            }
         }
 
         //
         // GET: /Locations/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(_locationRepository.Find(id));
         }
 
         //
@@ -99,16 +117,17 @@ namespace GuildENM.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            locationRepository.Delete(id);
-            locationRepository.Save();
+            _locationRepository.Delete(id);
+            _locationRepository.Save();
 
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing) {
-                locationRepository.Dispose();
+            if (disposing)
+            {
+                _locationRepository.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -4,22 +4,208 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div class="row">
+    <div class="col-md-4 ">
+        <form class="form-horizontal">
+            <fieldset>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Company</legend>
+                <!-- Form Name -->
+                <legend>Edit @Model.Name Information</legend>
 
-        @Html.HiddenFor(model => model.Id)
-		@Html.Partial("_CreateOrEdit", Model)
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Url, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Url, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Url)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Save" class="btn btn-success pull-right" />
+                    </div>
+                </div>
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
+            </fieldset>
+        </form>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </div>
+    <div class="col-md-8 ">
+        <form>
+            <legend>@Model.Name Locations</legend>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th width="30%">Street</th>
+                        <th width="20%">City</th>
+                        <th width="25%">State</th>
+                        <th width="10%">Zip</th>
+                        <th width="15%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Locations == null || !Model.Locations.Any())
+                    {
+                        <tr>
+                            <td colspan="5" style="text-align:center">No locations added <a href="">Add New Location</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+
+                            <td>
+                                <div class="btn-group pull-right" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                </div> 
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+
+                            <td>
+                                <div class="btn-group pull-right" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                </div> 
+                            </td>
+                        </tr>
+                        foreach (var item in Model.Locations)
+                        {
+                            <tr>
+                                <td>@item.Street @item.Street2</td>
+                                <td>@item.City</td>
+                                <td>@item.State</td>
+                                <td>@item.Zip</td>
+                                <td>
+                                    <div class="btn-group pull-right" role="group" aria-label="...">
+                                        <button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    }
+
+
+
+                </tbody>
+            </table>
+        </form>
+
+    </div>
+    <div class="col-md-12">
+        <form action="/" method="post">
+            <legend>@Model.Name Contacts</legend>
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Contacts == null || !Model.Contacts.Any())
+                    {
+                        <tr>
+                            <td colspan="6" style="text-align:center">No Contacts added <a href="">Add New Contact</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+
+                            <td>
+                                <button class="btn btn-success"><i class="glyphicon fa fa-plus-sign"></i></button>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" class="form-control input-sm" value="" />
+                            </td>
+
+                            <td>
+                                <div class="btn-group pull-right" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                </div>   
+                            </td>
+                        </tr>
+                        foreach (var item in Model.Contacts)
+                        {
+                            <tr>
+                                <td><input type="radio" name="DefaultContactId" value="@item.Id" @(item.Id == Model.DefaultContactId.Value ? "checked='checked'" : "") /></td>
+                                <td>@item.FirstName</td>
+                                <td>@item.LastName</td>
+                                <td>@item.Email</td>
+                                <td>@item.PhoneNumber</td>
+                                <td>
+                                    <div class="btn-group pull-right" role="group" aria-label="...">
+                                        <button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+            </table>
+        </form>
+    </div>
 </div>
