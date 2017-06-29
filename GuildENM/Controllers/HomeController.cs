@@ -26,7 +26,7 @@ namespace GuildENM.Controllers
         }
         public ActionResult Index()
         {
-            return View(postRepository.AllIncluding(post => post.Location, post => post.Company).Where(p => p.PostDate <= DateTime.Now).ToList());
+            return View(postRepository.AllIncluding(post => post.Location).Where(p => p.PostDate <= DateTime.Now).ToList());
         }
 
         public ActionResult About()

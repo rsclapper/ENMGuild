@@ -29,7 +29,7 @@ namespace GuildENM.Controllers
 
         public ViewResult Index()
         {
-            return View(postRepository.AllIncluding(post => post.Location, post => post.Company));
+            return View(postRepository.AllIncluding(post => post.Location, p => p.Location.Company));
         }
 
         //

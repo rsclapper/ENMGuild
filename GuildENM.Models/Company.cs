@@ -12,7 +12,9 @@ namespace GuildENM.Models
 
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Contact> Contacts {get;set;}
+        public virtual ICollection<Location> Locations {get;set; }
     }
+   
     public class Contact
     {
         public int Id { get; set; }
