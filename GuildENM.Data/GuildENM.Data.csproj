@@ -83,6 +83,14 @@
     <Compile Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.Designer.cs">
       <DependentUpon>201706270248154_AddedFKConstrantDefaultContact_ContactID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706291433057_RemovedDefaultContactTable.cs" />
+    <Compile Include="Migrations\201706291433057_RemovedDefaultContactTable.Designer.cs">
+      <DependentUpon>201706291433057_RemovedDefaultContactTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706291433482_ChangedDefaultContactToNullable.cs" />
+    <Compile Include="Migrations\201706291433482_ChangedDefaultContactToNullable.Designer.cs">
+      <DependentUpon>201706291433482_ChangedDefaultContactToNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.resx">
       <DependentUpon>201706270248154_AddedFKConstrantDefaultContact_ContactID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706291433057_RemovedDefaultContactTable.resx">
+      <DependentUpon>201706291433057_RemovedDefaultContactTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706291433482_ChangedDefaultContactToNullable.resx">
+      <DependentUpon>201706291433482_ChangedDefaultContactToNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

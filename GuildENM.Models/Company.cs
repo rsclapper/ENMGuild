@@ -17,24 +17,15 @@ namespace GuildENM.Models
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }
+        public int? DefaultContactId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
 
         public virtual Company Company { get; set; }
+        public virtual Contact DefaultContact { get; set; }
     }
 
-    public class DefaultContact
-    {
-        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [ForeignKey("Company")]
-        public int CompanyId { get; set; }
-
-        [ForeignKey("Contact")]
-        public int ContactId { get; set; }
-
-        public virtual Company Company { get; set; }
-        public virtual Contact Contact { get; set; }
-    }
+    
 }
