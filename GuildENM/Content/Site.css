@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     background-color: #ebebec;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: 60px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -115,6 +116,7 @@ textarea {
 .btn-success {
     background-color: #b21f28;
     color: #ebebec;
+    border-color: #58595b;
     transition: .3s;
 }
     .btn-success:hover {
@@ -147,3 +149,19 @@ label {
     font-family: 'Bitter', serif;
     font-size: 16px;
 }
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+}
+

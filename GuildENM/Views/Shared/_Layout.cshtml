@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans" rel="stylesheet">
- 
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a  href="@Url.Action("Index","Home")"><img height="51px" style="margin:15px" src="~/Content/images/swg_logo-white.png" alt="The Software Guild" /></a>
+                <a href="@Url.Action("Index","Home")"><img height="51px" style="margin:15px" src="~/Content/images/swg_logo-white.png" alt="The Software Guild" /></a>
                 @*@Html.ActionLink("The Software Guild", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
@@ -36,13 +36,13 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="footer">
             <p>&copy; @DateTime.Now.Year -  Software Guild. All Rights Reserved. <a href="https://www.thesoftwareguild.com/privacy-policy/"><strong>Privacy Policy</strong></a></p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery-3.1.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap-wysiwyg.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

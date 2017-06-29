@@ -6,7 +6,9 @@
 
 <div class="row">
     <div class="col-md-4 ">
-        <form class="form-horizontal">
+       @using (Html.BeginForm("Edit","Companies",new { id=Model.Id},FormMethod.Post,new { @class= "form-horizontal" }))
+       {
+
             <fieldset>
 
                 <!-- Form Name -->
@@ -34,7 +36,7 @@
                 </div>
 
             </fieldset>
-        </form>
+       }
 
     </div>
     <div class="col-md-8 ">
@@ -189,7 +191,7 @@
                         foreach (var item in Model.Contacts)
                         {
                             <tr>
-                                <td><input type="radio" name="DefaultContactId" value="@item.Id" @(item.Id == Model.DefaultContactId.Value ? "checked='checked'" : "") /></td>
+                                <td><input type="radio" name="DefaultContactId" value="@item.Id" @(Model.DefaultContactId.HasValue && item.Id == Model.DefaultContactId.Value ? "checked='checked'" : "") /></td>
                                 <td>@item.FirstName</td>
                                 <td>@item.LastName</td>
                                 <td>@item.Email</td>

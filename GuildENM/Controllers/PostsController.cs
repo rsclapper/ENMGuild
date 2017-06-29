@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using GuildENM.Data;
 using GuildENM.Models;
 using GuildENM.Models.Repositories;
-
+using System.Linq;
 namespace GuildENM.Controllers
 {   
     public class PostsController : Controller
@@ -45,8 +45,8 @@ namespace GuildENM.Controllers
 
         public ActionResult Create()
         {
-			ViewBag.PossibleLocations = locationRepository.All;
-			ViewBag.PossibleCompanies = companyRepository.All;
+			ViewBag.PossibleLocations = new SelectList(locationRepository.All.Select(r=> new { Text = r.Street  + " " + r.Street2 + " " + r.City + ", " + r.State + " " + r.Zip, Value = r.Id }),"Value","Text");
+			ViewBag.PossibleCompanies = new SelectList(companyRepository.All.Select(r=> new { Text = r.Name, Value = r.Id }),"Value","Text");
             return View(new Post(){PostDate = DateTime.Now, LastEdit = DateTime.Now});
         } 
 
@@ -54,6 +54,7 @@ namespace GuildENM.Controllers
         // POST: /Posts/Create
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(Post post)
         {
             if (ModelState.IsValid) {
@@ -81,6 +82,7 @@ namespace GuildENM.Controllers
         // POST: /Posts/Edit/5
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(Post post)
         {
             if (ModelState.IsValid) {

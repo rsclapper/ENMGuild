@@ -3,45 +3,53 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Manage Companies</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th></th>
-        <th>
-            Name
-        </th>
-        <th>
-            Url
-        </th>
-        <th>
-            Posts
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-        <td>
-			@item.Name
-        </td>
-        <td>
-			@item.Url
-        </td>
-        <td>
-			@(item.Posts == null ? "None" : item.Posts.Count.ToString())
-        </td>
-    </tr>
-}
-
-</table>
+<div class="row">
+    <div class="col-md-12 ">
 
 
+        <h2>Manage Companies</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table table-bordered table-responsive">
+            <tr>
+                <th width="30%">
+                    Name
+                </th>
+                <th width="30%">
+                    Url
+                </th>
+                <th width="5%">
+                    Posts
+                </th>
+                <th width="15%"></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Url
+                    </td>
+                    <td>
+                        @(item.Posts == null ? "None" : item.Posts.Count.ToString())
+                    </td>
+                    <td>
+                        <div class="btn-group pull-right" role="group" aria-label="...">
+                            <a href="@Url.Action("Edit","Companies",new {id = item.Id })" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                            <a href="@Url.Action("Details","Companies",new {id = item.Id })" class="btn btn-success"><i class="fa fa-search"></i></a>
+                            <a href="@Url.Action("Delete","Companies",new {id = item.Id })" class="btn btn-success"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
