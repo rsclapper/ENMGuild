@@ -38,7 +38,7 @@ namespace GuildENM.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact your Employment Network Manager";
 
             return View();
         }
