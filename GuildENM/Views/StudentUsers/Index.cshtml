@@ -56,12 +56,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ProfileUrl)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Attachments.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JobHistories.CompanyName)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -112,12 +107,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProfileUrl)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Attachments.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JobHistories.CompanyName)
-        </td>
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

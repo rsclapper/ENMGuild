@@ -20,7 +20,7 @@ namespace GuildENM.Controllers
         // GET: StudentUsers
         public async Task<ActionResult> Index()
         {
-            var applicationUsers = db.StudentUsers.Include(s => s.Attachments).Include(s => s.JobHistories);
+            var applicationUsers = db.StudentUsers;
             return View(await applicationUsers.ToListAsync());
         }
 

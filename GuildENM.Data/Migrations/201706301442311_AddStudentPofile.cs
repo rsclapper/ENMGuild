@@ -7,6 +7,10 @@ namespace GuildENM.Data.Migrations
     {
         public override void Up()
         {
+            RenameTable(name: "dbo.SkillPosts", newName: "PostSkills");
+            RenameTable(name: "dbo.CourseSkills", newName: "SkillCourses");
+            DropPrimaryKey("dbo.PostSkills");
+            DropPrimaryKey("dbo.SkillCourses");
             CreateTable(
                 "dbo.Attachments",
                 c => new
@@ -56,6 +60,8 @@ namespace GuildENM.Data.Migrations
             
             AddColumn("dbo.AspNetUsers", "GraudationDate", c => c.DateTime());
             AddColumn("dbo.AspNetUsers", "ProfileUrl", c => c.String());
+            AddPrimaryKey("dbo.PostSkills", new[] { "Post_Id", "Skill_Id" });
+            AddPrimaryKey("dbo.SkillCourses", new[] { "Skill_Id", "Course_Id" });
         }
         
         public override void Down()
@@ -68,11 +74,17 @@ namespace GuildENM.Data.Migrations
             DropIndex("dbo.Notes", new[] { "EmploymentManagerId" });
             DropIndex("dbo.JobHistories", new[] { "StudentUserId" });
             DropIndex("dbo.Attachments", new[] { "StudentUserId" });
+            DropPrimaryKey("dbo.SkillCourses");
+            DropPrimaryKey("dbo.PostSkills");
             DropColumn("dbo.AspNetUsers", "ProfileUrl");
             DropColumn("dbo.AspNetUsers", "GraudationDate");
             DropTable("dbo.Notes");
             DropTable("dbo.JobHistories");
             DropTable("dbo.Attachments");
+            AddPrimaryKey("dbo.SkillCourses", new[] { "Course_Id", "Skill_Id" });
+            AddPrimaryKey("dbo.PostSkills", new[] { "Skill_Id", "Post_Id" });
+            RenameTable(name: "dbo.SkillCourses", newName: "CourseSkills");
+            RenameTable(name: "dbo.PostSkills", newName: "SkillPosts");
         }
     }
 }

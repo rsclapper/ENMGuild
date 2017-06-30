@@ -59,13 +59,9 @@
     <Compile Include="Migrations\201706300224468_InitDbV.Designer.cs">
       <DependentUpon>201706300224468_InitDbV.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706301426533_AddStudentPofile.cs" />
-    <Compile Include="Migrations\201706301426533_AddStudentPofile.Designer.cs">
-      <DependentUpon>201706301426533_AddStudentPofile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706301433433_AddJobHistories.cs" />
-    <Compile Include="Migrations\201706301433433_AddJobHistories.Designer.cs">
-      <DependentUpon>201706301433433_AddJobHistories.cs</DependentUpon>
+    <Compile Include="Migrations\201706301442311_AddStudentPofile.cs" />
+    <Compile Include="Migrations\201706301442311_AddStudentPofile.Designer.cs">
+      <DependentUpon>201706301442311_AddStudentPofile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostRepository.cs" />
@@ -85,11 +81,8 @@
     <EmbeddedResource Include="Migrations\201706300224468_InitDbV.resx">
       <DependentUpon>201706300224468_InitDbV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706301426533_AddStudentPofile.resx">
-      <DependentUpon>201706301426533_AddStudentPofile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706301433433_AddJobHistories.resx">
-      <DependentUpon>201706301433433_AddJobHistories.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706301442311_AddStudentPofile.resx">
+      <DependentUpon>201706301442311_AddStudentPofile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

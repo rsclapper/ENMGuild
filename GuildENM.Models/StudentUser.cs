@@ -5,7 +5,7 @@ namespace GuildENM.Models
 {
     public class StudentUser : ApplicationUser
     {
-        public DateTime GraudationDate { get; set; } 
+        public DateTime? GraudationDate { get; set; } 
         public string ProfileUrl { get; set; }
 
         public virtual ICollection<JobHistory> JobHistories { get; set; }
