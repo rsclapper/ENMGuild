@@ -62,9 +62,9 @@ namespace GuildENM.Controllers
                 postRepository.Save();
                 return RedirectToAction("Index");
             } else {
-				ViewBag.PossibleLocations = locationRepository.All;
-				ViewBag.PossibleCompanies = companyRepository.All;
-				return View();
+                ViewBag.PossibleLocations = new SelectList(locationRepository.All.Select(r => new { Text = r.Street + " " + r.Street2 + " " + r.City + ", " + r.State + " " + r.Zip, Value = r.Id }), "Value", "Text");
+                ViewBag.PossibleCompanies = new SelectList(companyRepository.All.Select(r => new { Text = r.Name, Value = r.Id }), "Value", "Text");
+                return View();
 			}
         }
         
@@ -73,9 +73,9 @@ namespace GuildENM.Controllers
  
         public ActionResult Edit(int id)
         {
-			ViewBag.PossibleLocations = locationRepository.All;
-			ViewBag.PossibleCompanies = companyRepository.All;
-             return View(postRepository.Find(id));
+            ViewBag.PossibleLocations = new SelectList(locationRepository.All.Select(r => new { Text = r.Street + " " + r.Street2 + " " + r.City + ", " + r.State + " " + r.Zip, Value = r.Id }), "Value", "Text");
+            ViewBag.PossibleCompanies = new SelectList(companyRepository.All.Select(r => new { Text = r.Name, Value = r.Id }), "Value", "Text");
+            return View(postRepository.Find(id));
         }
 
         //

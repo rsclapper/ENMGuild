@@ -3,42 +3,76 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Manage Job Posts</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@foreach (var item in Model)
+<style>
+    .postContent{
+        max-height:100px;
+    }
+</style>
+@if (User.IsInRole("ENM"))
 {
-    <div class="row">
-        <div class="col-md-12">
-            <div class="controls pull-right">
-          
-            </div>
-            <div class="content">
-                <h3 class="pull-left"> @item.Title</h3>
-                <div class="pull-right">
-                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-                    @Html.ActionLink("Details", "Details", new {id = item.Id}) |
-                    @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+    <h2>Manage Job Posts
+        @Html.ActionLink("Create New", "Create",null,new { @class = "btn btn-success pull-right" })
+
+    
+    </h2>
+
+}
+@if (User.Identity.IsAuthenticated)
+{
+    foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="controls pull-right">
+
                 </div>
-                <div class="clearfix"></div>
-                <h4 class="pull-left">@item.PostDate.Date.ToShortDateString()
-                    <span class="badge">dot net</span>
-                    <span class="badge">java</span>
-                </h4>
-                <h4 class="pull-right">
-                    @item.Location.Street @item.Location.Street2 , @item.Location.State @item.Location.Zip
+                <div class="content">
+                    <h3 class=""> @item.Title @@ @item.Location.Company.Name
+                    @if (User.IsInRole("ENM"))
+                    {
+                        <div class="pull-right">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success pull-right" }) 
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-success pull-right" })
+                        </div>
+                    }
+                    </h3>
 
-                </h4>
-                <div class="clearfix"></div>
-                <p>@item.Description</p>
+                    <div class="clearfix"></div>
+                    <h4 class="pull-left">
+                        @item.PostDate.Date.ToShortDateString()
 
+                    </h4>
+                    <h4 class="pull-right">
+                        @item.Location.Street @item.Location.Street2 , @item.Location.State @item.Location.Zip
+
+                    </h4>
+                    <div class="clearfix"></div>
+                    <div class="postContent">@Html.Raw(item.Description)  </div>@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "readmore" })
+
+
+                </div>
             </div>
         </div>
-    </div>
+    }
+
+}
+else{ 
+     <div class="row">
+            <div class="col-md-12">
+                <center><h2>Please Sign up/in </h2></center>
+                </div>
+         </div>
 }
 
 
+@section scripts{
+    <script src="~/Scripts/jquery.dotdotdot.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".postContent").dotdotdot({
+                after: "a.readmore"
+            });
+        });
+    </script>
+}
 

@@ -24,9 +24,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
-                    <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
-                    @*<li>@Html.ActionLink("Comments", "Index", "Comments")</li>*@
-                    <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                    @if (User.IsInRole("ENM"))
+                    {
+                        <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
+                        <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                    }
+                    
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
