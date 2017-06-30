@@ -20,6 +20,11 @@ namespace GuildENM.Data
         {
             return new ApplicationDbContext();
         }
+        protected override void OnModelCreating(DbModelBuilder mb)
+        {
+            mb.Entity<Company>().HasMany(m => m.Contacts).WithRequired(m => m.Company).HasForeignKey(r=> r.CompanyId);
+            base.OnModelCreating(mb);
+        }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Company> Companies { get; set; }

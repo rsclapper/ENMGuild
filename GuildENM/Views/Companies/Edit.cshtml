@@ -40,7 +40,9 @@
 
     </div>
     <div class="col-md-8 ">
-        <form>
+@using (Html.BeginForm("CreateAddress", "Companies", new { CompanyId = Model.Id }, FormMethod.Post, new { @class = "form-horizontal", id="CreateAddress" }))
+{
+
             <legend>@Model.Name Locations</legend>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -60,21 +62,21 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="Street" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="City" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="State" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="Zip" class="form-control input-sm" value="" />
                             </td>
 
                             <td>
                                 <div class="btn-group pull-right" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                    <button type="button" class="btn btn-success" onclick="$('#CreateAddress').submit()"><i class="fa fa-plus"></i></button>
                                 </div> 
                             </td>
                         </tr>
@@ -83,21 +85,21 @@
                     {
                         <tr>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="Street" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="City" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="State" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="Zip" class="form-control input-sm" value="" />
                             </td>
 
                             <td>
                                 <div class="btn-group pull-right" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                    <button type="button" class="btn btn-success" onclick="$('#CreateAddress').submit()"><i class="fa fa-plus"></i></button>
                                 </div> 
                             </td>
                         </tr>
@@ -123,11 +125,11 @@
 
                 </tbody>
             </table>
-        </form>
+}
 
     </div>
     <div class="col-md-12">
-        <form action="/" method="post">
+        <form action="@Url.Action("CreateContact","Companies",new { id = Model.Id })" id="createContact" method="post">
             <legend>@Model.Name Contacts</legend>
             <table class="table table-bordered table-responsive">
                 <thead>
@@ -148,20 +150,20 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="FirstName" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="LastName" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="Email" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="PhoneNumber" class="form-control input-sm" value="" />
                             </td>
 
                             <td>
-                                <button class="btn btn-success"><i class="glyphicon fa fa-plus-sign"></i></button>
+                                <button type="button" class="btn btn-success" onclick="$('#createContact').submit()"><i class="fa fa-plus"></i></button>
                             </td>
                         </tr>
                     }
@@ -170,21 +172,21 @@
                         <tr>
                             <td></td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="FirstName" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="LastName" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="Email" class="form-control input-sm" value="" />
                             </td>
                             <td>
-                                <input type="text" name="name" class="form-control input-sm" value="" />
+                                <input type="text" name="PhoneNumber" class="form-control input-sm" value="" />
                             </td>
 
                             <td>
                                 <div class="btn-group pull-right" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                    <button type="button" class="btn btn-success" onclick="$('#createContact').submit()"><i class="fa fa-plus"></i></button>
                                 </div>   
                             </td>
                         </tr>

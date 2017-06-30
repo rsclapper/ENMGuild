@@ -2,21 +2,22 @@ using System.Web.Mvc;
 using GuildENM.Data;
 using GuildENM.Models;
 using GuildENM.Models.Repositories;
+using System.Linq;
 
 namespace GuildENM.Controllers
-{   
+{
     public class CompaniesController : Controller
     {
-		private readonly ICompanyRepository companyRepository;
+        private readonly Uow _uow;
 
-		// If you are using Dependency Injection, you can delete the following constructor
-        public CompaniesController() : this(new CompanyRepository())
+        // If you are using Dependency Injection, you can delete the following constructor
+        public CompaniesController() : this(new Uow())
         {
         }
 
-        public CompaniesController(ICompanyRepository companyRepository)
+        public CompaniesController(Uow uow)
         {
-			this.companyRepository = companyRepository;
+            this._uow = uow;
         }
 
         //
@@ -24,7 +25,7 @@ namespace GuildENM.Controllers
 
         public ViewResult Index()
         {
-            return View(companyRepository.AllIncluding(company => company.Posts));
+            return View(_uow.Companies.AllIncluding(company => company.Posts));
         }
 
         //
@@ -32,7 +33,7 @@ namespace GuildENM.Controllers
 
         public ViewResult Details(int id)
         {
-            return View(companyRepository.Find(id));
+            return View(_uow.Companies.Find(id));
         }
 
         //
@@ -40,30 +41,72 @@ namespace GuildENM.Controllers
 
         public ActionResult Create()
         {
-            return View(new Company());
-        } 
+            return View(new CreateCompanyVM());
+        }
 
         //
         // POST: /Companies/Create
 
         [HttpPost]
-        public ActionResult Create(Company company)
+        public ActionResult Create(CreateCompanyVM model)
         {
-            if (ModelState.IsValid) {
-                companyRepository.InsertOrUpdate(company);
-                companyRepository.Save();
-                return RedirectToAction("Index");
-            } else {
-				return View();
-			}
+            if (ModelState.IsValid)
+            {
+                ILocationRepository locationRepo = new LocationRepository();
+                _uow.Companies.InsertOrUpdate(model.Company);
+                _uow.Save();
+                model.Contact.CompanyId = model.Company.Id;
+                _uow.Contacts.InsertOrUpdate(model.Contact);
+                _uow.Save();
+
+                model.Location.Company = model.Company;
+                _uow.Locations.InsertOrUpdate(model.Location);
+                model.Company.DefaultContact = model.Contact;
+                _uow.Companies.InsertOrUpdate(model.Company);
+
+
+                _uow.Save();
+                return RedirectToAction("Edit", new { id = model.Company.Id });
+            }
+            else
+            {
+                return View(model);
+            }
         }
-        
+
         //
         // GET: /Companies/Edit/5
- 
+        [HttpPost]
+        public ActionResult CreateContact(int id, Contact model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Id = 0;
+                model.CompanyId = id;
+                _uow.Contacts.InsertOrUpdate(model);
+                _uow.Save();
+            return RedirectToAction("Edit", new { id = id });
+            }
+            return RedirectToAction("Edit", new { id = id });
+
+        }
+        [HttpPost]
+        public ActionResult CreateAddress(Location model)
+        {
+            if (ModelState.IsValid)
+            {
+                _uow.Locations.InsertOrUpdate(model);
+                _uow.Save();
+                return RedirectToAction("Edit", new { id = model.CompanyId });
+            }
+            return RedirectToAction("Edit", new { id = model.CompanyId });
+
+        }
         public ActionResult Edit(int id)
         {
-             return View(companyRepository.Find(id));
+            IQueryable<Company> query = _uow.Companies.AllIncluding(p => p.Contacts);
+            Company m = query.FirstOrDefault(r => r.Id == id);
+            return View(m);
         }
 
         //
@@ -72,21 +115,24 @@ namespace GuildENM.Controllers
         [HttpPost]
         public ActionResult Edit(Company company)
         {
-            if (ModelState.IsValid) {
-                companyRepository.InsertOrUpdate(company);
-                companyRepository.Save();
+            if (ModelState.IsValid)
+            {
+                _uow.Companies.InsertOrUpdate(company);
+                _uow.Save();
                 return RedirectToAction("Index");
-            } else {
-				return View();
-			}
+            }
+            else
+            {
+                return View();
+            }
         }
 
         //
         // GET: /Companies/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
-            return View(companyRepository.Find(id));
+            return View(_uow.Companies.Find(id));
         }
 
         //
@@ -95,16 +141,17 @@ namespace GuildENM.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            companyRepository.Delete(id);
-            companyRepository.Save();
+            _uow.Companies.Delete(id);
+            _uow.Save();
 
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing) {
-                companyRepository.Dispose();
+            if (disposing)
+            {
+                _uow.Dispose();
             }
             base.Dispose(disposing);
         }

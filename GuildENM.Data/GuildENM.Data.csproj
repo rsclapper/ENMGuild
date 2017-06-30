@@ -55,49 +55,9 @@
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="CompanyRepository.cs" />
     <Compile Include="LocationRepository.cs" />
-    <Compile Include="Migrations\201704251844309_initdb.cs" />
-    <Compile Include="Migrations\201704251844309_initdb.Designer.cs">
-      <DependentUpon>201704251844309_initdb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706231500348_Added skill tags.cs" />
-    <Compile Include="Migrations\201706231500348_Added skill tags.Designer.cs">
-      <DependentUpon>201706231500348_Added skill tags.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706270106069_removedComments.cs" />
-    <Compile Include="Migrations\201706270106069_removedComments.Designer.cs">
-      <DependentUpon>201706270106069_removedComments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706270123296_addedContacts.cs" />
-    <Compile Include="Migrations\201706270123296_addedContacts.Designer.cs">
-      <DependentUpon>201706270123296_addedContacts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706270223141_renamedTagsToSkills_AddedStudentENM.cs" />
-    <Compile Include="Migrations\201706270223141_renamedTagsToSkills_AddedStudentENM.Designer.cs">
-      <DependentUpon>201706270223141_renamedTagsToSkills_AddedStudentENM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706270232518_fixedUserColumnSpelling.cs" />
-    <Compile Include="Migrations\201706270232518_fixedUserColumnSpelling.Designer.cs">
-      <DependentUpon>201706270232518_fixedUserColumnSpelling.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.cs" />
-    <Compile Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.Designer.cs">
-      <DependentUpon>201706270248154_AddedFKConstrantDefaultContact_ContactID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706291433057_RemovedDefaultContactTable.cs" />
-    <Compile Include="Migrations\201706291433057_RemovedDefaultContactTable.Designer.cs">
-      <DependentUpon>201706291433057_RemovedDefaultContactTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706291433482_ChangedDefaultContactToNullable.cs" />
-    <Compile Include="Migrations\201706291433482_ChangedDefaultContactToNullable.Designer.cs">
-      <DependentUpon>201706291433482_ChangedDefaultContactToNullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706291443174_AddedLocationToCompany.cs" />
-    <Compile Include="Migrations\201706291443174_AddedLocationToCompany.Designer.cs">
-      <DependentUpon>201706291443174_AddedLocationToCompany.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706291748342_FixedDefaultContactId.cs" />
-    <Compile Include="Migrations\201706291748342_FixedDefaultContactId.Designer.cs">
-      <DependentUpon>201706291748342_FixedDefaultContactId.cs</DependentUpon>
+    <Compile Include="Migrations\201706300224468_InitDbV.cs" />
+    <Compile Include="Migrations\201706300224468_InitDbV.Designer.cs">
+      <DependentUpon>201706300224468_InitDbV.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostRepository.cs" />
@@ -114,38 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704251844309_initdb.resx">
-      <DependentUpon>201704251844309_initdb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706231500348_Added skill tags.resx">
-      <DependentUpon>201706231500348_Added skill tags.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706270106069_removedComments.resx">
-      <DependentUpon>201706270106069_removedComments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706270123296_addedContacts.resx">
-      <DependentUpon>201706270123296_addedContacts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706270223141_renamedTagsToSkills_AddedStudentENM.resx">
-      <DependentUpon>201706270223141_renamedTagsToSkills_AddedStudentENM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706270232518_fixedUserColumnSpelling.resx">
-      <DependentUpon>201706270232518_fixedUserColumnSpelling.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706270248154_AddedFKConstrantDefaultContact_ContactID.resx">
-      <DependentUpon>201706270248154_AddedFKConstrantDefaultContact_ContactID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706291433057_RemovedDefaultContactTable.resx">
-      <DependentUpon>201706291433057_RemovedDefaultContactTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706291433482_ChangedDefaultContactToNullable.resx">
-      <DependentUpon>201706291433482_ChangedDefaultContactToNullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706291443174_AddedLocationToCompany.resx">
-      <DependentUpon>201706291443174_AddedLocationToCompany.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706291748342_FixedDefaultContactId.resx">
-      <DependentUpon>201706291748342_FixedDefaultContactId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706300224468_InitDbV.resx">
+      <DependentUpon>201706300224468_InitDbV.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

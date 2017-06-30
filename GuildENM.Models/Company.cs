@@ -4,8 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GuildENM.Models
 {
-    public class Company
+    public class Company : IEntity
     {
+        public Company()
+        {
+            this.Posts = new List<Post>();
+            this.Contacts = new List<Contact>();
+            this.Locations = new List<Location>();
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
@@ -14,19 +20,8 @@ namespace GuildENM.Models
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Contact> Contacts {get;set;}
         public virtual ICollection<Location> Locations {get;set; }
+        [ForeignKey("DefaultContactId")]
         public virtual Contact DefaultContact { get; set; }
-    }
-
-    public class Contact
-    {
-        public int Id { get; set; }
-        public int CompanyId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-
-        public virtual Company Company { get; set; }
     }
 
     

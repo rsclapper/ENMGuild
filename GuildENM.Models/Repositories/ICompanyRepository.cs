@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
-
 namespace GuildENM.Models.Repositories
 {
     public interface ICompanyRepository : IDisposable
@@ -13,4 +12,6 @@ namespace GuildENM.Models.Repositories
         void Delete(int id);
         void Save();
     }
+
+   
 }

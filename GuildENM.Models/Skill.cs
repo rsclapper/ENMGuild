@@ -4,7 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GuildENM.Models
 {
-    public class Skill
+    public interface IEntity
+    {
+         int Id { get; set; }
+    }
+    public class Skill : IEntity
     {
         public int Id { get; set; }
         [MaxLength(50)]

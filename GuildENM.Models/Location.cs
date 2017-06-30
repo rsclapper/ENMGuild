@@ -1,6 +1,6 @@
 ﻿namespace GuildENM.Models
 {
-    public class Location
+    public class Location : IEntity
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }

@@ -1,21 +1,140 @@
-@model GuildENM.Models.Company
+@model GuildENM.Models.CreateCompanyVM
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create</h2>
 <div class="row">
-    <div class="col-md-8">
-        @using (Html.BeginForm("Create","Companies",FormMethod.Post))
+    <div class="col-md-4 ">
+        @using (Html.BeginForm("Create", "Companies", FormMethod.Post, new { @class = "form-horizontal" }))
         {
-            @Html.ValidationSummary(true)
-            @Html.Partial("_CreateOrEdit", Model)
 
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>New Information</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Company.Name, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Company.Name, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Company.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Company.Url, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Company.Url, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Company.Url)
+                    </div>
+                </div>
+                
+
+            </fieldset>
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Contact Information</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Contact.FirstName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Contact.FirstName, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Contact.FirstName)
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Contact.LastName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Contact.LastName, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Contact.LastName)
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Contact.PhoneNumber, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Contact.PhoneNumber, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Contact.PhoneNumber)
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Contact.Email, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Contact.Email, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Contact.Email)
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Location Information</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Location.Street, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Location.Street, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Contact.FirstName)
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Location.Street2, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Location.Street2, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Location.Street2)
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Location.City, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Location.City, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Location.City)
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Location.State, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Location.State, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Location.State)
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Location.Zip, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Location.Zip, new { @class = "form-control input-md" })
+                        @Html.ValidationMessageFor(model => model.Location.Zip)
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+
+
+
+
+
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Save" class="btn btn-success pull-right" />
+                </div>
+            </div>
         }
-    
+
     </div>
    
-
 </div>
-
