@@ -32,5 +32,9 @@ namespace GuildENM.Data
         public DbSet<Skill> Tags { get; set; }
         public DbSet<StudentUser> StudentUsers { get; set; }
         public DbSet<EmploymentManager> EmploymentManager { get; set; }
+
+        public DbSet<Attachment> Attachments { get; set; }
+
+        public DbSet<JobHistory> JobHistories { get; set; }
     }
 }
