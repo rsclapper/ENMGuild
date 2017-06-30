@@ -163,5 +163,8 @@ html {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
+    background-color: #58595b;
+    color: white;
+    padding: 20px;
 }
 
