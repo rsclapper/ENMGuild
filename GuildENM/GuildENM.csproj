@@ -189,11 +189,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AttachmentsController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\CreateCompanyVM.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobHistoriesController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\StudentUsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -461,6 +464,21 @@
     <Content Include="Views\StudentUsers\Details.cshtml" />
     <Content Include="Views\StudentUsers\Edit.cshtml" />
     <Content Include="Views\StudentUsers\Index.cshtml" />
+    <Content Include="Views\Notes\Create.cshtml" />
+    <Content Include="Views\Notes\Delete.cshtml" />
+    <Content Include="Views\Notes\Details.cshtml" />
+    <Content Include="Views\Notes\Edit.cshtml" />
+    <Content Include="Views\Notes\Index.cshtml" />
+    <Content Include="Views\Attachments\Create.cshtml" />
+    <Content Include="Views\Attachments\Delete.cshtml" />
+    <Content Include="Views\Attachments\Details.cshtml" />
+    <Content Include="Views\Attachments\Edit.cshtml" />
+    <Content Include="Views\Attachments\Index.cshtml" />
+    <Content Include="Views\JobHistories\Create.cshtml" />
+    <Content Include="Views\JobHistories\Delete.cshtml" />
+    <Content Include="Views\JobHistories\Details.cshtml" />
+    <Content Include="Views\JobHistories\Edit.cshtml" />
+    <Content Include="Views\JobHistories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -36,5 +36,7 @@ namespace GuildENM.Data
         public DbSet<Attachment> Attachments { get; set; }
 
         public DbSet<JobHistory> JobHistories { get; set; }
+
+        public System.Data.Entity.DbSet<GuildENM.Models.Note> Notes { get; set; }
     }
 }

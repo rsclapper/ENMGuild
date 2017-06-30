@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201706301442311_AddStudentPofile.Designer.cs">
       <DependentUpon>201706301442311_AddStudentPofile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706301508268_AddedStudentLinkToNotes.cs" />
+    <Compile Include="Migrations\201706301508268_AddedStudentLinkToNotes.Designer.cs">
+      <DependentUpon>201706301508268_AddedStudentLinkToNotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706301442311_AddStudentPofile.resx">
       <DependentUpon>201706301442311_AddStudentPofile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706301508268_AddedStudentLinkToNotes.resx">
+      <DependentUpon>201706301508268_AddedStudentLinkToNotes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

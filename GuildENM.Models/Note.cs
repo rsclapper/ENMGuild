@@ -10,10 +10,16 @@ namespace GuildENM.Models
         public string Content { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
-        [Key]
+        [ForeignKey("EmploymentManager")]
         public string EmploymentManagerId { get; set; }
 
         [ForeignKey("EmploymentManagerId")]
         public EmploymentManager EmploymentManager { get; set; }
+
+        [ForeignKey("Student")]
+        public string StudentId { get; set; }
+
+        [ForeignKey("StudentId")]
+        public StudentUser Student { get; set; }
     }
 }
