@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GuildENM.Models
@@ -20,24 +19,5 @@ namespace GuildENM.Models
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-    }
-
-    public class EmploymentManager : ApplicationUser
-    {
-        public virtual ICollection<StudentUser> Students { get; set; }
-    }
-    public class StudentUser : ApplicationUser
-    {
-         
-        public virtual ICollection<Course> Courses { get; set; }
-
-        public virtual EmploymentManager EmploymentManager { get; set; }
-    }
-
-    public class Course
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public ICollection<Skill> Skills { get; set; }
     }
 }
