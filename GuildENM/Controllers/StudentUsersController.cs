@@ -21,7 +21,10 @@ namespace GuildENM.Controllers
         public async Task<ActionResult> Index()
         {
             var applicationUsers = db.StudentUsers;
-            return View(await applicationUsers.ToListAsync());
+            var viewModel = new StudentManagementViewModel();
+            viewModel.UnAssignedStudents = await applicationUsers.Where(s => s.EmploymentManager == null).ToListAsync();
+            viewModel.MyStudents = await applicationUsers.Where(s => s.EmploymentManager.UserName == User.Identity.Name).ToListAsync();
+            return View(viewModel);
         }
 
         // GET: StudentUsers/Details/5
