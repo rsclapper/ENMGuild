@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="@Url.Action("Index","Home")"><img height="51px" style="margin:15px" src="~/Content/images/swg_logo-white.png" alt="The Software Guild" /></a>
+                <a href="@Url.Action("Index","Posts")"><img height="51px" style="margin:15px" src="~/Content/images/swg_logo-white.png" alt="The Software Guild" /></a>
                 @*@Html.ActionLink("The Software Guild", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
@@ -28,6 +28,7 @@
                     {
                         <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
                         <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                        <li>@Html.ActionLink("Apprentices", "Index", "StudentUsers")</li>
                     }
                     
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
