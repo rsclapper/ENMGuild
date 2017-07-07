@@ -25,7 +25,7 @@ namespace GuildENM.Controllers
 
         public ViewResult Index()
         {
-            return View(_uow.Companies.AllIncluding(company => company.Posts));
+            return View(_uow.Companies.All);
         }
 
         //

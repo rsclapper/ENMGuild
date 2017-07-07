@@ -1,4 +1,6 @@
-﻿namespace GuildENM.Models
+﻿using System.Collections.Generic;
+
+namespace GuildENM.Models
 {
     public class Location : IEntity
     {
@@ -11,5 +13,6 @@
         public string Zip { get; set; }
 
         public virtual Company Company { get; set; }
+        public virtual ICollection<Contact> Contacts {get; set; }
     }
 }
