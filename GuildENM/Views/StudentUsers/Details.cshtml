@@ -3,139 +3,118 @@
 @{
     ViewBag.Title = "Details";
 }
+<h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
 
-<h2>Details</h2>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Details</h4>
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
+            </tr>
+            <tr>
+                <td>Graduation Date</td>
+                <td>@Html.DisplayFor(model => model.GraudationDate)</td>
+            </tr>
+            <tr>
+                <td>Profile</td>
+                <td>@Html.DisplayFor(model => model.ProfileUrl)</td>
+            </tr>
+        </table>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Attachments</h4>
+        @if (Model.Attachments != null && Model.Attachments.Any())
+        {
+            foreach (var item in Model.Attachments)
+            {
+                <table class="table table-striped">
+                    <tr>
+                        <th>Attachment Name</th>
+                        <th>Type</th>
+                        <th>Attachment</th>
+                    </tr>
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.AttachmentTypeId</td>
+                        <td><a href="@item.Path" target="_blank">Download</a></td>
+                    </tr>
+                </table>
+            }
+        }
+        else
+        {
+            <p>No attachments yet for this user.</p>
+        }
+    </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Job History</h4>
 
-<div>
-    <h4>StudentUser</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailConfirmed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmailConfirmed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PasswordHash)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PasswordHash)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SecurityStamp)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SecurityStamp)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumberConfirmed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TwoFactorEnabled)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEndDateUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEndDateUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEnabled)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEnabled)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AccessFailedCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AccessFailedCount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GraudationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GraudationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileUrl)
-        </dd>
-
-      
-
-
-    </dl>
-</div>
-<p>
+        @if (Model.JobHistories != null && Model.JobHistories.Any())
+        {
+            foreach (var item in Model.JobHistories)
+            {
+                <table class="table table-striped">
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>>End Date</th>
+                    </tr>
+                    <tr>
+                        <td>@item.CompanyName</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.StartDate</td>
+                        <td>@item.EndDate</td>
+                    </tr>
+                </table>
+            }
+        }
+        else
+        {
+            <p>No job history yet for this user.</p>
+        }
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Notes</h4>
+        @if (Model.Notes != null && Model.Notes.Any())
+        {
+            foreach (var item in Model.Notes)
+            {
+                <table class="table table-striped">
+                    <tr>
+                        <th>Date</th>
+                        <th>ENM</th>
+                        <th>Note</th>
+                    </tr>
+                    <tr>
+                        <td>@item.CreatedDate</td>
+                        <td>@item.EmploymentManager.FirstName @item.EmploymentManager.LastName</td>
+                        <td>@item.Content</td>
+                    </tr>
+                </table>
+            }
+        }
+        else
+        {
+            <p>No notes yet for this user.</p>
+        }
+        </div>
+    </div>
+<p style="padding-top: 25px;">
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
