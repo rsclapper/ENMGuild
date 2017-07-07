@@ -29,10 +29,19 @@
                         <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
                         <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
                         <li>@Html.ActionLink("Apprentices", "Index", "StudentUsers")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Company", "Company", "Reports")</li>
+                                
+                            </ul>
+                        </li>
                     }
                     
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    
                 </ul>
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
